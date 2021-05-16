@@ -1,0 +1,99 @@
+<section class="registration">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-6 offset-lg-3">
+        <div class="card ">
+          <div class="card-header  text-center">Registration</div>
+          <div class="card-body">
+            <form [formGroup]="validatingForm" (ngSubmit)="onSubmit()">
+              <div class="row">
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <label for="">First Name:</label>
+                    <input type="" class="form-control" placeholder="First Name" formControlName="firstName" required>
+                    <!-- <span class="text-muted" *ngIf="!validatingForm.controls['name'].valid && validatingForm.controls['name']?.touched"> Please enter a valid first name</span> -->
+                    <span class="text-danger p-0 pl-1" *ngIf="hasError('firstName', 'required')">You must enter a value</span>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <label for="">Last Name:</label>
+                    <input type="" class="form-control" placeholder="Last Name" formControlName="lastName" required>
+                    <span class="text-danger p-0 pl-1" *ngIf="hasError('lastName', 'required')">You must enter a value</span>
+
+                  </div>
+                </div>
+                <div class="col-md-12">
+                  <div class="form-group">
+                    <label for="">Phone Number:</label>
+                    <input type="" class="form-control" placeholder="Phone Number" formControlName="phoneNumber" required maxlength="10">
+                    <span class="text-danger p-0 pl-1" *ngIf="hasError('phoneNumber', 'required')">You must enter a value</span>
+                    <span class="text-danger p-0 pl-1" *ngIf="!hasError('phoneNumber', 'required') && hasError('phoneNumber', 'minlength')">Enter 10 digit mobile number</span>
+                  </div>
+                </div>
+                <div class="col-md-12">
+                  <div class="form-group">
+                    <label for="">Email:</label>
+                    <input type="" class="form-control" placeholder="Email" formControlName="email" required>
+                    <span class="text-danger p-0 pl-1" *ngIf="hasError('email', 'required')">You must enter a value</span>
+                    <span class="text-danger p-0 pl-1" *ngIf="!hasError('email', 'required') && hasError('email', 'email')">Enter correct email address</span>
+                  </div>
+                </div>
+                <div class="col-md-12">
+                  <div class="form-group">
+                    <label for="">Password:</label>
+                    <input type="password" class="form-control" placeholder="Password" formControlName="password" required>
+                    <span class="text-danger p-0 pl-1" *ngIf="hasError('password', 'required')">You must enter a value</span>
+                  </div>
+                </div>
+                <div class="col-md-12">
+                  <div class="form-group">
+                    <label for="">Confirm Password:</label>
+                    <input type="password" class="form-control" placeholder="Confirm Password" formControlName="confirmPassword" required>
+                    <span class="text-danger p-0 pl-1" *ngIf="hasError('confirmPassword', 'required')">Password and confirm Password must be same</span>
+                  </div>
+                </div>
+                <div class="col-md-12">
+                  <div class="form-group">
+                    <label for="">Date of Birth:</label>
+                    <input type="date" class="form-control" placeholder="Date of Birth" formControlName="dob" required>
+                    <span class="text-danger p-0 pl-1" *ngIf="hasError('dob', 'required')">You must enter a value</span>
+                  </div>
+                </div>
+                <div class="col-md-12">
+                  <div class="form-group">
+                    <label for="">Address:</label>
+                    <input type="" class="form-control" placeholder="Address" id="address" formControlName="address" required>
+                    <span class="text-danger p-0 pl-1" *ngIf="hasError('address', 'required')">You must enter a value</span>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <label for="">City:</label>
+                    <input type="" class="form-control" placeholder="City" id="city" formControlName="city" required>
+                    <span class="text-danger p-0 pl-1" *ngIf="hasError('city', 'required')">You must enter a value</span>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <label for="">State:</label>
+                    <input type="" class="form-control" placeholder="State" id="lname" formControlName="state" required>
+                    <span class="text-danger p-0 pl-1" *ngIf="hasError('state', 'required')">You must enter a value</span>
+                  </div>
+                </div>
+                <div class="col-md-12 text-center">
+
+                  <button class="btn btn-primary  btn-signup">Register</button>
+                  <div class="alert alert-success mt-2 success-message" role="alert" *ngIf="registered">
+                    Successfully registered. Thank you :)
+                  </div>
+                </div>
+              </div>
+            </form>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
